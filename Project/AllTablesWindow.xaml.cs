@@ -39,5 +39,10 @@ namespace Project
         {
             Manager._frame.Navigate(new ClientsPage());
         }
+
+        private void btnSupplies_Click(object sender, RoutedEventArgs e)
+        {
+            Manager._frame.Navigate(new SuplicePage());
+        }
     }
 }

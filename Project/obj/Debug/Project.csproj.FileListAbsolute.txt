@@ -35,3 +35,7 @@ W:\!Личная\Практика\Project\Project\obj\Debug\AddDistrict.g.cs
 W:\!Личная\Практика\Project\Project\obj\Debug\AddDistrict.baml
 W:\!Личная\Практика\Project\Project\obj\Debug\AllTablesWindow.g.cs
 W:\!Личная\Практика\Project\Project\obj\Debug\AllTablesWindow.baml
+W:\!Личная\Практика\Project\Project\obj\Debug\SuplicePage.g.cs
+W:\!Личная\Практика\Project\Project\obj\Debug\SuplicePage.baml
+W:\!Личная\Практика\Project\Project\obj\Debug\AddSupplice.g.cs
+W:\!Личная\Практика\Project\Project\obj\Debug\AddSupplice.baml

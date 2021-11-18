@@ -39,7 +39,6 @@ namespace Project
             }
             DataContext = districts;
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try

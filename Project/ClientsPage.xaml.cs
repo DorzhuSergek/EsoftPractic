@@ -46,7 +46,6 @@ namespace Project
 
         private void EditClient_Click(object sender, RoutedEventArgs e)
         {
-
             Manager._frame.Navigate(new AddClients(DataGrid.SelectedItem as clients));
         }
 

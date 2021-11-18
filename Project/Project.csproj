@@ -67,6 +67,9 @@
     <Compile Include="AddDistrict.xaml.cs">
       <DependentUpon>AddDistrict.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddSupplice.xaml.cs">
+      <DependentUpon>AddSupplice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="agents.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -133,6 +136,9 @@
     <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="SuplicePage.xaml.cs">
+      <DependentUpon>SuplicePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="supplies.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -148,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddRealtor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddSupplice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,6 +195,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SuplicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Manager.cs" />

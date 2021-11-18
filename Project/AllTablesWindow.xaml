@@ -49,5 +49,15 @@
                 Grid.Row="0"
                 Grid.Column="2"
                 Click="btnDistricts_Click"/>
+        <Button x:Name="btnSupplies" Content="Предложение" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="BlanchedAlmond"
+                Width="111"
+                Height="30"
+                FontWeight="Bold"
+                Grid.Row="1"
+                Grid.Column="0"
+                Click="btnSupplies_Click"/>
     </Grid>
 </Page>

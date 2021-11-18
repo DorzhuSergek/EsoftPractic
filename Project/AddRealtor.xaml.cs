@@ -34,6 +34,20 @@ namespace Project
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder stringBuilder = new StringBuilder();
+            if (string.IsNullOrWhiteSpace(agents.FirstName))
+                stringBuilder.AppendLine("Поле 'Фамилия' обязательно для заполнения");
+            if (string.IsNullOrWhiteSpace(agents.MiddleName))
+                stringBuilder.AppendLine("Поле 'Имя' обязательно обязательно для заполнения");
+            if (string.IsNullOrWhiteSpace(agents.LastName))
+                stringBuilder.AppendLine("Поле 'Отчество' обязательно обязательно для заполнения");
+            if (stringBuilder.Length > 0)
+            {
+                MessageBox.Show(stringBuilder.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+
             if (Phone.Text != "")
             {
                 if (agents.Id == 0)
