@@ -1,0 +1,54 @@
+﻿<Page x:Class="Project.AddRieltor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Project"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddRieltor">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="BlanchedAlmond"></Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Background="BlanchedAlmond">
+            <TextBlock Text="Добавление риелтора" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="BlanchedAlmond">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Фамилия" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14px"></TextBlock>
+            <TextBlock Text="Имя" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14px"></TextBlock>
+            <TextBlock Text="Отчество"  Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14px"></TextBlock>
+            <TextBlock Text="Доля сделки" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14px"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="Surname" Grid.Row="0" Width="500px" Height="25px" Text="{Binding Path=FirstName}"></TextBox>
+            <TextBox x:Name="Name"  Grid.Row="1" Width="500px" Height="25px" Text="{Binding Path=MiddleName}"></TextBox>
+            <TextBox x:Name="LastName" Grid.Row="2" Width="500px" Height="25px" Text="{Binding Path=LastName}"></TextBox>
+            <TextBox x:Name="Phone" Grid.Row="3" Width="500px" Height="25px" Text="{Binding Path=DealShare}"></TextBox>
+            <Button Name="editDS" Grid.Row="5" Content="Добавить" Width="100px" Height="25px" Click="Button_Click"
+                    Background="BlanchedAlmond"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+        </Grid>
+    </Grid>
+</Page>
