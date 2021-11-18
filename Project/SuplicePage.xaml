@@ -10,10 +10,12 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+
             <RowDefinition Height="7*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="0">
+        <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="id" Binding="{Binding Path=Id}" Width="*"/>
                 <DataGridTextColumn Header="Цена" Binding="{Binding Path=Price}" Width="*"/>
@@ -22,7 +24,7 @@
                 <DataGridTextColumn Header="Объект"  Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Grid.Row="1" Background="White">
+        <Grid Grid.Row="2" Background="White">
             <Button Name="addSup" Grid.Row="5" Content="Добавить" Width="100px" Height="25px" Click="addSup_Click"
                     Background="BlanchedAlmond"
                     VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
@@ -32,6 +34,11 @@
             <Button Name="DelSup" Grid.Row="5" Content="Удалить" Width="100px" Height="25px" Click="DelSup_Click"
                     Background="BlanchedAlmond"
                     VerticalAlignment="Center" HorizontalAlignment="Right"></Button>
+        </Grid>
+        <Grid Grid.Row="0" Background="White">
+            <RadioButton x:Name="apartments" GroupName="Type" Content="Квартиры" Checked="apartments_Checked"/>
+            <RadioButton x:Name="houses" GroupName="Type" Content="Дом" VerticalAlignment="Center" Checked="apartments_Checked"/>
+            <RadioButton x:Name="lands" GroupName="Type" Content="Земля" VerticalAlignment="Bottom" Checked="apartments_Checked"/>
         </Grid>
         
     </Grid>

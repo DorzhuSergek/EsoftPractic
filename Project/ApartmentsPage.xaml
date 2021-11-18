@@ -12,10 +12,12 @@
         <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="id" Binding="{Binding Path=Id}" Width="*"/>
-                <DataGridTextColumn Header="Цена" Binding="{Binding Path=Price}" Width="*"/>
-                <DataGridTextColumn Header="Агент" Binding="{Binding Path=agents.MiddleName}" Width="*"/>
-                <DataGridTextColumn Header="Клиент" Binding="{Binding Path=clients.MiddleName}" Width="*"/>
-                <DataGridTextColumn Header="Объект"  Width="*"/>
+                <DataGridTextColumn Header="IDDistrict" Binding="{Binding Path=IdDistrict}" Width="*"/>
+                <DataGridTextColumn Header="Координаты" Binding="{Binding Path=Coordinate_laitude}" Width="*"/>
+                <DataGridTextColumn Header="Координаты" Binding="{Binding Path=Coordinate_longitude}" Width="*"/>
+                <DataGridTextColumn Header="Площадь" Binding="{Binding Path=TotalArea}" Width="*"/>
+                <DataGridTextColumn Header="Комнаты" Binding="{Binding Path=Rooms}" Width="*"/>
+                <DataGridTextColumn Header="Этаж" Binding="{Binding Path=Floor}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

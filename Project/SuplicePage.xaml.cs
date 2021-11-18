@@ -55,5 +55,16 @@ namespace Project
                 }
             }
         }
+
+        private void apartments_Checked(object sender, RoutedEventArgs e)
+        {
+            string ctx = ((RadioButton)sender).ToString();
+            switch (ctx)
+            {
+                case "Квартира":
+                    Manager._frame.Navigate(new apartments());
+                    break;
+            }
+        }
     }
 }
