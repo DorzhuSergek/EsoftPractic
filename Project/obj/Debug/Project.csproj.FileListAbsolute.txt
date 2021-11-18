@@ -39,3 +39,5 @@ W:\!Личная\Практика\Project\Project\obj\Debug\SuplicePage.g.cs
 W:\!Личная\Практика\Project\Project\obj\Debug\SuplicePage.baml
 W:\!Личная\Практика\Project\Project\obj\Debug\AddSupplice.g.cs
 W:\!Личная\Практика\Project\Project\obj\Debug\AddSupplice.baml
+W:\!Личная\Практика\Project\Project\obj\Debug\ApartmentsPage.g.cs
+W:\!Личная\Практика\Project\Project\obj\Debug\ApartmentsPage.baml
