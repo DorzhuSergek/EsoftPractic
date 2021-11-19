@@ -41,7 +41,6 @@ namespace Project
                 stringBuilder.AppendLine("Поле 'Имя' обязательно обязательно для заполнения");
             if (string.IsNullOrWhiteSpace(agents.LastName))
                 stringBuilder.AppendLine("Поле 'Отчество' обязательно обязательно для заполнения");
-
             if (stringBuilder.Length > 0)
             {
                 MessageBox.Show(stringBuilder.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -49,19 +48,27 @@ namespace Project
             }
 
 
-            if (Phone.Text != "")
+            if (DealShare.Text != "")
             {
-                if (agents.Id == 0)
+                int value = Convert.ToInt32(DealShare.Text);
+                if(value>=0 && value <=100)
                 {
-                    RealEstateAgencyEntities3.GetContext().agents.Add(agents);
-                }
-                RealEstateAgencyEntities3.GetContext().SaveChanges();
+                    if (agents.Id == 0)
+                    {
+                        RealEstateAgencyEntities3.GetContext().agents.Add(agents);
+                    }
+                    RealEstateAgencyEntities3.GetContext().SaveChanges();
 
-                MessageBox.Show("Все успешно");
+                    MessageBox.Show("Все успешно");
+                } else
+                {
+                    MessageBox.Show("Доля сделки от 0 до 100!");
+                }
+                
             }
             else
             {
-                MessageBox.Show("Заполните поле Phone");
+                MessageBox.Show("Заполните поле Доля сделки");
             }
         }
     }

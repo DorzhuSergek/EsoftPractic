@@ -45,7 +45,7 @@
             <TextBox x:Name="Surname" Grid.Row="0" Width="500px" Height="25px" Text="{Binding Path=FirstName}"></TextBox>
             <TextBox x:Name="Name"  Grid.Row="1" Width="500px" Height="25px" Text="{Binding Path=MiddleName}"></TextBox>
             <TextBox x:Name="LastName" Grid.Row="2" Width="500px" Height="25px" Text="{Binding Path=LastName}"></TextBox>
-            <TextBox x:Name="Phone" Grid.Row="3" Width="500px" Height="25px" Text="{Binding Path=DealShare}"></TextBox>
+            <TextBox x:Name="DealShare" Grid.Row="3" Width="500px" Height="25px" Text="{Binding Path=DealShare}"></TextBox>
             <Button Name="editDS" Grid.Row="5" Content="Добавить" Width="100px" Height="25px" Click="Button_Click"
                     Background="BlanchedAlmond"
                     VerticalAlignment="Center" HorizontalAlignment="Center"></Button>

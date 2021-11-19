@@ -64,7 +64,7 @@
             <TextBox x:Name="house" Grid.Row="4" Width="200px" Height="25px" Text="{Binding Path=Address_house}"></TextBox>
             <TextBox x:Name="Number" Grid.Row="5" Width="200px"
                     
-                     Height="25px" Text="{Binding Path=Address_number}" PreviewTextInput="Number_PreviewTextInput"></TextBox>
+                     Height="25px" Text="{Binding Path=Address_number}"></TextBox>
             <TextBox x:Name="Floors"  Visibility="Hidden" Grid.Row="1" Grid.Column="2" Width="200px" Height="25px" Text="{Binding Path=apartments.Floor}"
                      PreviewTextInput="Number_PreviewTextInput"></TextBox>
             <TextBox x:Name="Rooms"  Visibility="Hidden" Grid.Row="2" Grid.Column="2" Width="200px" Height="25px" Text="{Binding Path=apartments.Rooms}"
