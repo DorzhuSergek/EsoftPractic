@@ -21,11 +21,16 @@
         </Grid.ColumnDefinitions>
         <Grid x:Name="DGHeader" Grid.Column="1" Grid.ColumnSpan="3"
               Background="BlanchedAlmond">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Image Source="Resources/logo.png" HorizontalAlignment="Left"
+                   Height="50" VerticalAlignment="Center"/>
+            </StackPanel>
             <TextBlock Text="Агенство недвижимости"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="20"
-                       FontWeight="Bold"></TextBlock>
+                       FontWeight="Bold">
+            </TextBlock>
         </Grid>
         <Grid Background="BlanchedAlmond"></Grid>
         <Grid Grid.Row="1" Grid.RowSpan="3" Background="BlanchedAlmond"></Grid>

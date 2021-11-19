@@ -41,6 +41,7 @@ namespace Project
                 stringBuilder.AppendLine("Поле 'Имя' обязательно обязательно для заполнения");
             if (string.IsNullOrWhiteSpace(agents.LastName))
                 stringBuilder.AppendLine("Поле 'Отчество' обязательно обязательно для заполнения");
+
             if (stringBuilder.Length > 0)
             {
                 MessageBox.Show(stringBuilder.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

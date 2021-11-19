@@ -19,7 +19,9 @@
         </Grid.RowDefinitions>
         <Grid Background="BlanchedAlmond"></Grid>
         <Grid Grid.Row="0" Grid.Column="1" Background="BlanchedAlmond">
+            
             <TextBlock Text="Добавление объекта" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
+            
         </Grid>
 
         <Grid Grid.Row="1" Background="BlanchedAlmond">
@@ -97,8 +99,82 @@
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Center" 
                        FontSize="14px"></TextBlock>
-            
-
+            <TextBlock x:Name="TBLatitude" 
+                       Visibility="Hidden"
+                       Grid.Column="1" Grid.Row="4" Text="Ширина" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" 
+                       FontSize="14px"></TextBlock>
+            <TextBlock x:Name="TBLongitude" 
+                       Visibility="Hidden"
+                       Grid.Column="1" Grid.Row="5" Text="Долгота" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" 
+                       FontSize="14px"></TextBlock>
+            <Grid Grid.Row="4"
+                  Grid.Column="2"
+                  Name="GDLatitude"
+                  Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Slider x:Name="sliderLatitude" 
+                        Grid.Row="0"  
+                        Visibility="Visible"
+                        Minimum="-90"
+                        Maximum="90"
+                        Value="-90"
+                        IsSnapToTickEnabled="True"
+                        ValueChanged="sliderLatitude_ValueChanged"
+                      ></Slider>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+      
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel>
+                            <Label x:Name="labelValue0" Content="Value:" />
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBox x:Name="Value0" Text="{Binding ElementName=sliderLatitude, Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="5"
+                  Grid.Column="2" 
+                  Name="GDLongitude"
+                  Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Slider x:Name="sliderLongitude" 
+                        Grid.Row="0"  
+                        Visibility="Visible"
+                        Minimum="-180"
+                        Maximum="180"
+                        Value="180"
+                        IsSnapToTickEnabled="True"
+                        ValueChanged="sliderLongitude_ValueChanged"></Slider>
+                <Grid Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <StackPanel>
+                            <Label x:Name="labelValue" Content="Value:" />
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBox x:Name="Value" Text="{Binding ElementName=sliderLongitude, Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </StackPanel>
+                   
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

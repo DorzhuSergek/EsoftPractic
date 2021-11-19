@@ -64,6 +64,12 @@ namespace Project
                 case "Квартиры":
                     Manager._frame.Navigate(new apartmentsPage());
                     break;
+                case "Земля":
+                    Manager._frame.Navigate(new LandsPage());
+                    break;
+                case "Дом":
+                    Manager._frame.Navigate(new HousesPage());
+                    break;
             }
         }
     }

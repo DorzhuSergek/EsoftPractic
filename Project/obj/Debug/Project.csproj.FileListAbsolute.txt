@@ -40,3 +40,8 @@ W:\!Личная\Практика\Project\Project\obj\Debug\AddSupplice.g.cs
 W:\!Личная\Практика\Project\Project\obj\Debug\AddSupplice.baml
 W:\!Личная\Практика\Project\Project\obj\Debug\ApartmentsPage.g.cs
 W:\!Личная\Практика\Project\Project\obj\Debug\ApartmentsPage.baml
+W:\!Личная\Практика\Project\Project\obj\Debug\LandsPage.g.cs
+W:\!Личная\Практика\Project\Project\obj\Debug\LandsPage.baml
+W:\!Личная\Практика\Project\Project\obj\Debug\HousesPage.g.cs
+W:\!Личная\Практика\Project\Project\obj\Debug\HousesPage.baml
+W:\!Личная\Практика\Project\Project\obj\Debug\Project.csprojAssemblyReference.cache
