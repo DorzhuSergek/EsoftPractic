@@ -50,10 +50,31 @@ namespace Project
                         MessageBox.Show("Выберите тип");
                         return;
                     }
-                    RealEstateAgencyEntities2.GetContext().districts.Add(districts);
-                    RealEstateAgencyEntities2.GetContext().apartments.Add(apartments);
+                    RealEstateAgencyEntities3.GetContext().districts.Add(districts);
+                    switch (CBTypes.SelectedIndex)
+                    {
+                        case 0:
+                            apartments.IdDistrict = districts.Id;
+                            apartments.Rooms = Convert.ToInt32(Rooms.Text);
+                            apartments.Floor = Convert.ToInt32(Floors.Text);
+                            apartments.TotalArea = Area.Text;
+                            RealEstateAgencyEntities3.GetContext().apartments.Add(apartments);
+                            break;
+                        case 1:
+                            houses.IdDistrict = districts.Id;
+                            houses.TotalFloors = Convert.ToInt32(Floors.Text);
+                            houses.TotalArea = Convert.ToInt32(Area.Text);
+                            RealEstateAgencyEntities3.GetContext().houses.Add(houses);
+                            break;
+                        case 2:
+                            lands.IdDistrict = districts.Id;
+                            lands.TotalArea = Area.Text;
+                            RealEstateAgencyEntities3.GetContext().lands.Add(lands);
+                            break;
+                    }
+                    
                 }
-                RealEstateAgencyEntities2.GetContext().SaveChanges();
+                RealEstateAgencyEntities3.GetContext().SaveChanges();
 
                 MessageBox.Show("Все успешно");
 
@@ -84,8 +105,8 @@ namespace Project
                     districts.Type = "Квартира";
                     break;
                 case 1:
-                    Rooms.Visibility = Visibility.Visible;
-                    TBRooms.Visibility = Visibility.Visible;
+                    Rooms.Visibility = Visibility.Hidden;
+                    TBRooms.Visibility = Visibility.Hidden;
                     Floors.Visibility = Visibility.Visible;
                     TBFloors.Visibility = Visibility.Visible;
                     Area.Visibility = Visibility.Visible;
@@ -102,6 +123,16 @@ namespace Project
                     districts.Type = "Земля";
                     break;
             }
+        }
+
+        private void Floors_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
+
+        private void Rooms_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
         }
     }
 }

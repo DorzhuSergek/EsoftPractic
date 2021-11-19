@@ -23,7 +23,7 @@ namespace Project
         public DistrictPage()
         {
             InitializeComponent();
-            DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().districts.ToList();
+            DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().districts.ToList();
         }
 
         private void AddDistrict_Click(object sender, RoutedEventArgs e)
@@ -42,9 +42,9 @@ namespace Project
             if (MessageBox.Show($"Вы точно хотите удалить следующие {removeDistricts.Count()} элементов? ", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
-                {   RealEstateAgencyEntities2.GetContext().districts.RemoveRange(removeDistricts);
-                    RealEstateAgencyEntities2.GetContext().SaveChanges();
-                    DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().districts.ToList();
+                {   RealEstateAgencyEntities3.GetContext().districts.RemoveRange(removeDistricts);
+                    RealEstateAgencyEntities3.GetContext().SaveChanges();
+                    DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().districts.ToList();
                 }
                 catch (Exception ex)
                 {

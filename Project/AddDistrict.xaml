@@ -63,9 +63,12 @@
             <TextBox x:Name="Number" Grid.Row="5" Width="200px"
                     
                      Height="25px" Text="{Binding Path=Address_number}" PreviewTextInput="Number_PreviewTextInput"></TextBox>
-            <TextBox x:Name="Floors"  Visibility="Hidden" Grid.Row="1" Grid.Column="2" Width="200px" Height="25px" Text="{Binding Path=apartments.Floor}"></TextBox>
-            <TextBox x:Name="Rooms"  Visibility="Hidden" Grid.Row="2" Grid.Column="2" Width="200px" Height="25px" Text="{Binding Path=apartments.Rooms}"></TextBox>
-            <TextBox x:Name="Area"  Visibility="Hidden" Grid.Row="3"  Grid.Column="2" Width="200px" Height="25px" Text="{Binding Path=apartments.TotalArea}"></TextBox>
+            <TextBox x:Name="Floors"  Visibility="Hidden" Grid.Row="1" Grid.Column="2" Width="200px" Height="25px" Text="{Binding Path=apartments.Floor}"
+                     PreviewTextInput="Number_PreviewTextInput"></TextBox>
+            <TextBox x:Name="Rooms"  Visibility="Hidden" Grid.Row="2" Grid.Column="2" Width="200px" Height="25px" Text="{Binding Path=apartments.Rooms}"
+                     PreviewTextInput="Number_PreviewTextInput"></TextBox>
+            <TextBox x:Name="Area"  Visibility="Hidden" Grid.Row="3"  Grid.Column="2" Width="200px" Height="25px" Text="{Binding Path=apartments.TotalArea}"
+                     PreviewTextInput="Number_PreviewTextInput"></TextBox>
             <Button Grid.Row="6" Content="Сохранить" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="25px" Click="Button_Click"
                     Background="BlanchedAlmond"></Button>
             <Grid Grid.Column="1" Grid.RowSpan="7"

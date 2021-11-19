@@ -23,7 +23,7 @@ namespace Project
         public ClientsPage()
         {
             InitializeComponent();
-            DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().clients.ToList();
+            DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().clients.ToList();
             UpdateClients();
 
         }
@@ -39,8 +39,8 @@ namespace Project
         {
             if (Visibility == Visibility.Visible)
             {
-                RealEstateAgencyEntities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().clients.ToList();
+                RealEstateAgencyEntities3.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().clients.ToList();
             }
         }
 
@@ -56,10 +56,10 @@ namespace Project
             {
                 try
                 {
-                    RealEstateAgencyEntities2.GetContext().clients.RemoveRange(clientsForRemoving);
-                    RealEstateAgencyEntities2.GetContext().SaveChanges();
+                    RealEstateAgencyEntities3.GetContext().clients.RemoveRange(clientsForRemoving);
+                    RealEstateAgencyEntities3.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
-                    DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().clients.ToList();
+                    DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().clients.ToList();
 
                 }
                 catch (Exception ex)
@@ -79,7 +79,7 @@ namespace Project
      
         public void UpdateClients()
         {
-            var currentClients = RealEstateAgencyEntities2.GetContext().clients.ToList();
+            var currentClients = RealEstateAgencyEntities3.GetContext().clients.ToList();
             currentClients = currentClients.Where(p => p.FirstName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
         }
        

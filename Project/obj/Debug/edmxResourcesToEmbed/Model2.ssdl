@@ -118,8 +118,8 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="float" Nullable="false" />
-    <Property Name="IdDistrict" Type="int" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdDistrict" Type="int" Nullable="false" />
     <Property Name="Coordinate_latitude" Type="float" />
     <Property Name="Coordinate_longitude" Type="float" />
     <Property Name="TotalArea" Type="nvarchar" MaxLength="255" />
@@ -301,7 +301,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_lands_districts1">
-    <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+    <End Role="districts" Type="Self.districts" Multiplicity="1" />
     <End Role="lands" Type="Self.lands" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="districts">

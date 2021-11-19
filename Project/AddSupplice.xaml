@@ -33,7 +33,7 @@
             <TextBlock Text="Цена" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14px"></TextBlock>
             <TextBlock Text="Агент" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14px"></TextBlock>
             <TextBlock Text="Клиент"  Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14px"></TextBlock>
-            <TextBlock Text="Тип объекта" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14px"></TextBlock>
+            <TextBlock Text="Объект недвижимости" TextWrapping="Wrap" TextAlignment="Center" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14px"></TextBlock>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
@@ -46,7 +46,7 @@
             <TextBox x:Name="Prive" Grid.Row="0" Width="500px" Height="25px" Text="{Binding Path=Price}"></TextBox>
             <ComboBox x:Name="NameAgent"  Grid.Row="1" Width="500px" Height="25px" SelectedItem="{Binding Path=agents}" DisplayMemberPath="MiddleName"></ComboBox>
             <ComboBox x:Name="NameClient" Grid.Row="2" Width="500px" Height="25px" SelectedItem="{Binding Path=clients}" DisplayMemberPath="MiddleName"></ComboBox>
-            <ComboBox x:Name="TypeCMB" Grid.Row="3" Width="500px" Height="25px" ></ComboBox>
+            <ComboBox x:Name="TypeCMB" Grid.Row="3" Width="500px" Height="25px" SelectedItem="{Binding Path=districts}" DisplayMemberPath="Name"></ComboBox>
             <Button Name="editSup" Grid.Row="5" Content="Добавить" Width="100px" Height="25px" Click="editSup_Click"
                     Background="BlanchedAlmond"
                     VerticalAlignment="Center" HorizontalAlignment="Center"></Button>

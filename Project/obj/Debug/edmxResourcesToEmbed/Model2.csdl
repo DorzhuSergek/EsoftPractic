@@ -148,7 +148,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Double" Nullable="false" />
-    <Property Name="IdDistrict" Type="Int32" />
+    <Property Name="IdDistrict" Type="Int32" Nullable="false" />
     <Property Name="Coordinate_latitude" Type="Double" />
     <Property Name="Coordinate_longitude" Type="Double" />
     <Property Name="TotalArea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />

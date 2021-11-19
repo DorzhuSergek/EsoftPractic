@@ -21,7 +21,8 @@
                 <DataGridTextColumn Header="Цена" Binding="{Binding Path=Price}" Width="*"/>
                 <DataGridTextColumn Header="Агент" Binding="{Binding Path=agents.MiddleName}" Width="*"/>
                 <DataGridTextColumn Header="Клиент" Binding="{Binding Path=clients.MiddleName}" Width="*"/>
-                <DataGridTextColumn Header="Объект"  Width="*"/>
+                <DataGridTextColumn Header="Объект"  Width="*" Binding="{Binding Path=districts.Name}"/>
+                <DataGridTextColumn Header="Тип"  Width="*" Binding="{Binding Path=districts.Type}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="2" Background="White">

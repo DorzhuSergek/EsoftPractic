@@ -52,9 +52,9 @@ namespace Project
             {
                 if (agents.Id == 0)
                 {
-                    RealEstateAgencyEntities2.GetContext().agents.Add(agents);
+                    RealEstateAgencyEntities3.GetContext().agents.Add(agents);
                 }
-                RealEstateAgencyEntities2.GetContext().SaveChanges();
+                RealEstateAgencyEntities3.GetContext().SaveChanges();
 
                 MessageBox.Show("Все успешно");
             }

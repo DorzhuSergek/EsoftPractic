@@ -23,7 +23,7 @@ namespace Project
         public SuplicePage()
         {
             InitializeComponent();
-            DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().supplies.ToList();
+            DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().supplies.ToList();
         }
 
         private void addSup_Click(object sender, RoutedEventArgs e)
@@ -43,10 +43,10 @@ namespace Project
             {
                 try
                 {
-                    RealEstateAgencyEntities2.GetContext().supplies.RemoveRange(suppliceForRemoving);
-                    RealEstateAgencyEntities2.GetContext().SaveChanges();
+                    RealEstateAgencyEntities3.GetContext().supplies.RemoveRange(suppliceForRemoving);
+                    RealEstateAgencyEntities3.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
-                    DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().supplies.ToList();
+                    DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().supplies.ToList();
 
                 }
                 catch (Exception ex)

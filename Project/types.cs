@@ -12,14 +12,9 @@ namespace Project
     using System;
     using System.Collections.Generic;
     
-    public partial class lands
+    public partial class types
     {
-        public int Id { get; set; }
-        public int IdDistrict { get; set; }
-        public Nullable<double> Coordinate_latitude { get; set; }
-        public Nullable<double> Coordinate_longitude { get; set; }
-        public string TotalArea { get; set; }
-    
-        public virtual districts districts { get; set; }
+        public int id { get; set; }
+        public string Name { get; set; }
     }
 }

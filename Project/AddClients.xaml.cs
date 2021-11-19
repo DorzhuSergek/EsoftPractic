@@ -39,9 +39,9 @@ namespace Project
             {
                     if (clients.Id == 0)
                     {
-                        RealEstateAgencyEntities2.GetContext().clients.Add(clients);
+                        RealEstateAgencyEntities3.GetContext().clients.Add(clients);
                     }     
-                    RealEstateAgencyEntities2.GetContext().SaveChanges();
+                    RealEstateAgencyEntities3.GetContext().SaveChanges();
 
                     MessageBox.Show("Все успешно");
             }

@@ -20,16 +20,12 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdDistrict" Type="Int32" />
-    <Property Name="Address_City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Address_Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Address_House" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Address_Number" Type="Double" />
     <Property Name="Coordinate_latitude" Type="Double" />
     <Property Name="Coordinate_longitude" Type="Double" />
     <Property Name="TotalArea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Rooms" Type="Double" />
     <Property Name="Floor" Type="Double" />
-    <NavigationProperty Name="districts" Relationship="Self.FK_apartments_districts" FromRole="apartments" ToRole="districts" />
+    <NavigationProperty Name="districts" Relationship="Self.FK_apartments_districts1" FromRole="apartments" ToRole="districts" />
   </EntityType>
   <EntityType Name="apartments_demands">
     <Key>
@@ -97,14 +93,15 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Coordinates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="apartments" Relationship="Self.FK_apartments_districts" FromRole="districts" ToRole="apartments" />
-    <NavigationProperty Name="houses" Relationship="Self.FK_houses_districts" FromRole="districts" ToRole="houses" />
-    <NavigationProperty Name="lands" Relationship="Self.FK_lands_districts" FromRole="districts" ToRole="lands" />
-    <NavigationProperty Name="supplies" Relationship="Self.FK_supplies_districts" FromRole="districts" ToRole="supplies" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Addres_City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Address_Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Address_house" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Address_number" Type="Double" />
+    <NavigationProperty Name="apartments" Relationship="Self.FK_apartments_districts1" FromRole="districts" ToRole="apartments" />
+    <NavigationProperty Name="houses" Relationship="Self.FK_houses_districts1" FromRole="districts" ToRole="houses" />
+    <NavigationProperty Name="lands" Relationship="Self.FK_lands_districts1" FromRole="districts" ToRole="lands" />
+    <NavigationProperty Name="supplies" Relationship="Self.FK_supplies_districts" FromRole="districts" ToRole="supplies" />
   </EntityType>
   <EntityType Name="house_demands">
     <Key>
@@ -128,15 +125,11 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdDistrict" Type="Int32" />
-    <Property Name="Address_City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Address_Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Address_House" Type="Double" />
-    <Property Name="Address_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Coordinate_latitude" Type="Double" />
     <Property Name="Coordinate_longitude" Type="Double" />
     <Property Name="TotalFloors" Type="Double" />
     <Property Name="TotalArea" Type="Double" />
-    <NavigationProperty Name="districts" Relationship="Self.FK_houses_districts" FromRole="houses" ToRole="districts" />
+    <NavigationProperty Name="districts" Relationship="Self.FK_houses_districts1" FromRole="houses" ToRole="districts" />
   </EntityType>
   <EntityType Name="land_demands">
     <Key>
@@ -154,16 +147,12 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Double" Nullable="false" />
-    <Property Name="IdDistrict" Type="Int32" />
-    <Property Name="Address_City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Address_Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Address_House" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Address_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdDistrict" Type="Int32" Nullable="false" />
     <Property Name="Coordinate_latitude" Type="Double" />
     <Property Name="Coordinate_longitude" Type="Double" />
     <Property Name="TotalArea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="districts" Relationship="Self.FK_lands_districts" FromRole="lands" ToRole="districts" />
+    <NavigationProperty Name="districts" Relationship="Self.FK_lands_districts1" FromRole="lands" ToRole="districts" />
   </EntityType>
   <EntityType Name="supplies">
     <Key>
@@ -188,6 +177,13 @@
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="types">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_apartments_demands_agents">
     <End Role="agents" Type="Self.agents" Multiplicity="0..1" />
@@ -237,7 +233,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_apartments_districts">
+  <Association Name="FK_apartments_districts1">
     <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
     <End Role="apartments" Type="Self.apartments" Multiplicity="*" />
     <ReferentialConstraint>
@@ -357,7 +353,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_houses_districts">
+  <Association Name="FK_houses_districts1">
     <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
     <End Role="houses" Type="Self.houses" Multiplicity="*" />
     <ReferentialConstraint>
@@ -369,8 +365,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_lands_districts">
-    <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+  <Association Name="FK_lands_districts1">
+    <End Role="districts" Type="Self.districts" Multiplicity="1" />
     <End Role="lands" Type="Self.lands" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="districts">
@@ -393,7 +389,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="RealEstateAgencyEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="RealEstateAgencyEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="agents" EntityType="Self.agents" />
     <EntitySet Name="apartments" EntityType="Self.apartments" />
     <EntitySet Name="apartments_demands" EntityType="Self.apartments_demands" />
@@ -407,6 +403,7 @@
     <EntitySet Name="lands" EntityType="Self.lands" />
     <EntitySet Name="supplies" EntityType="Self.supplies" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="types" EntityType="Self.types" />
     <AssociationSet Name="FK_apartments_demands_agents" Association="Self.FK_apartments_demands_agents">
       <End Role="agents" EntitySet="agents" />
       <End Role="apartments_demands" EntitySet="apartments_demands" />
@@ -423,7 +420,7 @@
       <End Role="agents" EntitySet="agents" />
       <End Role="supplies" EntitySet="supplies" />
     </AssociationSet>
-    <AssociationSet Name="FK_apartments_districts" Association="Self.FK_apartments_districts">
+    <AssociationSet Name="FK_apartments_districts1" Association="Self.FK_apartments_districts1">
       <End Role="districts" EntitySet="districts" />
       <End Role="apartments" EntitySet="apartments" />
     </AssociationSet>
@@ -463,11 +460,11 @@
       <End Role="Demands" EntitySet="Demands" />
       <End Role="land_demands" EntitySet="land_demands" />
     </AssociationSet>
-    <AssociationSet Name="FK_houses_districts" Association="Self.FK_houses_districts">
+    <AssociationSet Name="FK_houses_districts1" Association="Self.FK_houses_districts1">
       <End Role="districts" EntitySet="districts" />
       <End Role="houses" EntitySet="houses" />
     </AssociationSet>
-    <AssociationSet Name="FK_lands_districts" Association="Self.FK_lands_districts">
+    <AssociationSet Name="FK_lands_districts1" Association="Self.FK_lands_districts1">
       <End Role="districts" EntitySet="districts" />
       <End Role="lands" EntitySet="lands" />
     </AssociationSet>

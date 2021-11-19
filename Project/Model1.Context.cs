@@ -15,18 +15,19 @@ namespace Project
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class RealEstateAgencyEntities2 : DbContext
+    public partial class RealEstateAgencyEntities3 : DbContext
     {
-        public RealEstateAgencyEntities2()
-            : base("name=RealEstateAgencyEntities2")
+        public RealEstateAgencyEntities3()
+            : base("name=RealEstateAgencyEntities3")
         {
         }
-        public static RealEstateAgencyEntities2 _context;
-        public static RealEstateAgencyEntities2 GetContext()
+
+        public static RealEstateAgencyEntities3 _context;
+        public static RealEstateAgencyEntities3 GetContext()
         {
-            if (_context == null)
+            if(_context == null)
             {
-                _context = new RealEstateAgencyEntities2();
+                _context = new RealEstateAgencyEntities3();
             }
             return _context;
         }
@@ -48,6 +49,7 @@ namespace Project
         public virtual DbSet<lands> lands { get; set; }
         public virtual DbSet<supplies> supplies { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<types> types { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

@@ -30,10 +30,9 @@ namespace Project
 
             }
             DataContext = supplies;
-            NameAgent.ItemsSource = RealEstateAgencyEntities2.GetContext().agents.ToList();
-            NameClient.ItemsSource = RealEstateAgencyEntities2.GetContext().clients.ToList();
-            string[] types = new string[3] { "Дом", "Земля", "Квартира" };
-            TypeCMB.ItemsSource = types;
+            NameAgent.ItemsSource = RealEstateAgencyEntities3.GetContext().agents.ToList();
+            NameClient.ItemsSource = RealEstateAgencyEntities3.GetContext().clients.ToList();
+            TypeCMB.ItemsSource = RealEstateAgencyEntities3.GetContext().districts.ToList();
         }
 
         private void editSup_Click(object sender, RoutedEventArgs e)
@@ -42,9 +41,9 @@ namespace Project
             {
                 if (supplies.Id == 0)
                 {
-                    RealEstateAgencyEntities2.GetContext().supplies.Add(supplies);
+                    RealEstateAgencyEntities3.GetContext().supplies.Add(supplies);
                 }
-                RealEstateAgencyEntities2.GetContext().SaveChanges();
+                RealEstateAgencyEntities3.GetContext().SaveChanges();
                 MessageBox.Show("Все успешно");
 
             }

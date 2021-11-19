@@ -75,6 +75,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="255" />
     <Property Name="Coordinates" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
     <Property Name="Addres_City" Type="nvarchar" MaxLength="50" />
     <Property Name="Address_Street" Type="nvarchar" MaxLength="50" />
     <Property Name="Address_house" Type="nvarchar" MaxLength="50" />
@@ -117,8 +118,8 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="float" Nullable="false" />
-    <Property Name="IdDistrict" Type="int" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdDistrict" Type="int" Nullable="false" />
     <Property Name="Coordinate_latitude" Type="float" />
     <Property Name="Coordinate_longitude" Type="float" />
     <Property Name="TotalArea" Type="nvarchar" MaxLength="255" />
@@ -142,6 +143,13 @@
     <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="types">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_apartments_demands_agents">
     <End Role="agents" Type="Self.agents" Multiplicity="0..1" />
@@ -179,7 +187,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_apartments_districts">
+  <Association Name="FK_apartments_districts1">
     <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
     <End Role="apartments" Type="Self.apartments" Multiplicity="*" />
     <ReferentialConstraint>
@@ -251,7 +259,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_houses_districts">
+  <Association Name="FK_houses_districts1">
     <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
     <End Role="houses" Type="Self.houses" Multiplicity="*" />
     <ReferentialConstraint>
@@ -299,8 +307,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_lands_districts">
-    <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+  <Association Name="FK_lands_districts1">
+    <End Role="districts" Type="Self.districts" Multiplicity="1" />
     <End Role="lands" Type="Self.lands" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="districts">
@@ -392,6 +400,7 @@
     <EntitySet Name="lands" EntityType="Self.lands" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="supplies" EntityType="Self.supplies" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="types" EntityType="Self.types" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_apartments_demands_agents" Association="Self.FK_apartments_demands_agents">
       <End Role="agents" EntitySet="agents" />
       <End Role="apartments_demands" EntitySet="apartments_demands" />
@@ -404,7 +413,7 @@
       <End Role="Demands" EntitySet="Demands" />
       <End Role="apartments_demands" EntitySet="apartments_demands" />
     </AssociationSet>
-    <AssociationSet Name="FK_apartments_districts" Association="Self.FK_apartments_districts">
+    <AssociationSet Name="FK_apartments_districts1" Association="Self.FK_apartments_districts1">
       <End Role="districts" EntitySet="districts" />
       <End Role="apartments" EntitySet="apartments" />
     </AssociationSet>
@@ -428,7 +437,7 @@
       <End Role="Demands" EntitySet="Demands" />
       <End Role="house-demands" EntitySet="house-demands" />
     </AssociationSet>
-    <AssociationSet Name="FK_houses_districts" Association="Self.FK_houses_districts">
+    <AssociationSet Name="FK_houses_districts1" Association="Self.FK_houses_districts1">
       <End Role="districts" EntitySet="districts" />
       <End Role="houses" EntitySet="houses" />
     </AssociationSet>
@@ -444,7 +453,7 @@
       <End Role="Demands" EntitySet="Demands" />
       <End Role="land-demands" EntitySet="land-demands" />
     </AssociationSet>
-    <AssociationSet Name="FK_lands_districts" Association="Self.FK_lands_districts">
+    <AssociationSet Name="FK_lands_districts1" Association="Self.FK_lands_districts1">
       <End Role="districts" EntitySet="districts" />
       <End Role="lands" EntitySet="lands" />
     </AssociationSet>

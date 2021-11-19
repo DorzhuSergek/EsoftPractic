@@ -23,15 +23,15 @@ namespace Project
         public AgentsPage()
         {
             InitializeComponent();
-            DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().agents.ToList();
+            DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().agents.ToList();
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                RealEstateAgencyEntities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().agents.ToList();
+                RealEstateAgencyEntities3.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().agents.ToList();
             }
         }
 
@@ -52,10 +52,10 @@ namespace Project
             {
                 try
                 {
-                    RealEstateAgencyEntities2.GetContext().agents.RemoveRange(agentsForRemoving);
-                    RealEstateAgencyEntities2.GetContext().SaveChanges();
+                    RealEstateAgencyEntities3.GetContext().agents.RemoveRange(agentsForRemoving);
+                    RealEstateAgencyEntities3.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
-                    DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().agents.ToList();
+                    DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().agents.ToList();
 
                 }
                 catch (Exception ex)

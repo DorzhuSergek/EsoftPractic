@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище RealEstateAgencyModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище RealEstateAgencyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="agents">
           <Key>
             <PropertyRef Name="Id" />
@@ -123,8 +123,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="float" Nullable="false" />
-          <Property Name="IdDistrict" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDistrict" Type="int" Nullable="false" />
           <Property Name="Coordinate_latitude" Type="float" />
           <Property Name="Coordinate_longitude" Type="float" />
           <Property Name="TotalArea" Type="nvarchar" MaxLength="255" />
@@ -148,6 +148,13 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_apartments_demands_agents">
           <End Role="agents" Type="Self.agents" Multiplicity="0..1" />
@@ -306,7 +313,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_lands_districts1">
-          <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+          <End Role="districts" Type="Self.districts" Multiplicity="1" />
           <End Role="lands" Type="Self.lands" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="districts">
@@ -384,7 +391,7 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="Хранилище RealEstateAgencyModel1Container">
+        <EntityContainer Name="Хранилище RealEstateAgencyModelContainer">
           <EntitySet Name="agents" EntityType="Self.agents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="apartments" EntityType="Self.apartments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="apartments_demands" EntityType="Self.apartments_demands" Schema="dbo" store:Type="Tables" />
@@ -398,6 +405,7 @@
           <EntitySet Name="lands" EntityType="Self.lands" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="supplies" EntityType="Self.supplies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="types" EntityType="Self.types" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_apartments_demands_agents" Association="Self.FK_apartments_demands_agents">
             <End Role="agents" EntitySet="agents" />
             <End Role="apartments_demands" EntitySet="apartments_demands" />
@@ -467,10 +475,11 @@
             <End Role="supplies" EntitySet="supplies" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="RealEstateAgencyModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="RealEstateAgencyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="agents">
           <Key>
             <PropertyRef Name="Id" />
@@ -496,7 +505,7 @@
           <Property Name="TotalArea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Rooms" Type="Double" />
           <Property Name="Floor" Type="Double" />
-          <NavigationProperty Name="districts" Relationship="Self.FK_apartments_districts" FromRole="apartments" ToRole="districts" />
+          <NavigationProperty Name="districts" Relationship="Self.FK_apartments_districts1" FromRole="apartments" ToRole="districts" />
         </EntityType>
         <EntityType Name="apartments_demands">
           <Key>
@@ -564,15 +573,15 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Coordinates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Addres_City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address_Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address_house" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address_number" Type="Double" />
-          <NavigationProperty Name="apartments" Relationship="Self.FK_apartments_districts" FromRole="districts" ToRole="apartments" />
-          <NavigationProperty Name="houses" Relationship="Self.FK_houses_districts" FromRole="districts" ToRole="houses" />
-          <NavigationProperty Name="lands" Relationship="Self.FK_lands_districts" FromRole="districts" ToRole="lands" />
+          <NavigationProperty Name="apartments" Relationship="Self.FK_apartments_districts1" FromRole="districts" ToRole="apartments" />
+          <NavigationProperty Name="houses" Relationship="Self.FK_houses_districts1" FromRole="districts" ToRole="houses" />
+          <NavigationProperty Name="lands" Relationship="Self.FK_lands_districts1" FromRole="districts" ToRole="lands" />
           <NavigationProperty Name="supplies" Relationship="Self.FK_supplies_districts" FromRole="districts" ToRole="supplies" />
-          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="house_demands">
           <Key>
@@ -600,7 +609,7 @@
           <Property Name="Coordinate_longitude" Type="Double" />
           <Property Name="TotalFloors" Type="Double" />
           <Property Name="TotalArea" Type="Double" />
-          <NavigationProperty Name="districts" Relationship="Self.FK_houses_districts" FromRole="houses" ToRole="districts" />
+          <NavigationProperty Name="districts" Relationship="Self.FK_houses_districts1" FromRole="houses" ToRole="districts" />
         </EntityType>
         <EntityType Name="land_demands">
           <Key>
@@ -618,12 +627,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Double" Nullable="false" />
-          <Property Name="IdDistrict" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDistrict" Type="Int32" Nullable="false" />
           <Property Name="Coordinate_latitude" Type="Double" />
           <Property Name="Coordinate_longitude" Type="Double" />
           <Property Name="TotalArea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="districts" Relationship="Self.FK_lands_districts" FromRole="lands" ToRole="districts" />
+          <NavigationProperty Name="districts" Relationship="Self.FK_lands_districts1" FromRole="lands" ToRole="districts" />
         </EntityType>
         <EntityType Name="supplies">
           <Key>
@@ -648,6 +657,13 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_apartments_demands_agents">
           <End Role="agents" Type="Self.agents" Multiplicity="0..1" />
@@ -697,7 +713,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_apartments_districts">
+        <Association Name="FK_apartments_districts1">
           <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
           <End Role="apartments" Type="Self.apartments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -817,7 +833,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_houses_districts">
+        <Association Name="FK_houses_districts1">
           <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
           <End Role="houses" Type="Self.houses" Multiplicity="*" />
           <ReferentialConstraint>
@@ -829,8 +845,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_lands_districts">
-          <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+        <Association Name="FK_lands_districts1">
+          <End Role="districts" Type="Self.districts" Multiplicity="1" />
           <End Role="lands" Type="Self.lands" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="districts">
@@ -853,7 +869,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RealEstateAgencyEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="RealEstateAgencyEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="agents" EntityType="Self.agents" />
           <EntitySet Name="apartments" EntityType="Self.apartments" />
           <EntitySet Name="apartments_demands" EntityType="Self.apartments_demands" />
@@ -867,6 +883,7 @@
           <EntitySet Name="lands" EntityType="Self.lands" />
           <EntitySet Name="supplies" EntityType="Self.supplies" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="types" EntityType="Self.types" />
           <AssociationSet Name="FK_apartments_demands_agents" Association="Self.FK_apartments_demands_agents">
             <End Role="agents" EntitySet="agents" />
             <End Role="apartments_demands" EntitySet="apartments_demands" />
@@ -883,7 +900,7 @@
             <End Role="agents" EntitySet="agents" />
             <End Role="supplies" EntitySet="supplies" />
           </AssociationSet>
-          <AssociationSet Name="FK_apartments_districts" Association="Self.FK_apartments_districts">
+          <AssociationSet Name="FK_apartments_districts1" Association="Self.FK_apartments_districts1">
             <End Role="districts" EntitySet="districts" />
             <End Role="apartments" EntitySet="apartments" />
           </AssociationSet>
@@ -923,11 +940,11 @@
             <End Role="Demands" EntitySet="Demands" />
             <End Role="land_demands" EntitySet="land_demands" />
           </AssociationSet>
-          <AssociationSet Name="FK_houses_districts" Association="Self.FK_houses_districts">
+          <AssociationSet Name="FK_houses_districts1" Association="Self.FK_houses_districts1">
             <End Role="districts" EntitySet="districts" />
             <End Role="houses" EntitySet="houses" />
           </AssociationSet>
-          <AssociationSet Name="FK_lands_districts" Association="Self.FK_lands_districts">
+          <AssociationSet Name="FK_lands_districts1" Association="Self.FK_lands_districts1">
             <End Role="districts" EntitySet="districts" />
             <End Role="lands" EntitySet="lands" />
           </AssociationSet>
@@ -951,11 +968,11 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(RealEstateAgencyModel1.sp_helpdiagramdefinition_Result)">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(RealEstateAgencyModel.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(RealEstateAgencyModel1.sp_helpdiagrams_Result)">
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(RealEstateAgencyModel.sp_helpdiagrams_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -982,9 +999,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище RealEstateAgencyModel1Container" CdmEntityContainer="RealEstateAgencyEntities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище RealEstateAgencyModelContainer" CdmEntityContainer="RealEstateAgencyEntities3">
           <EntitySetMapping Name="agents">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.agents">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.agents">
               <MappingFragment StoreEntitySet="agents">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -995,7 +1012,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="apartments">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.apartments">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.apartments">
               <MappingFragment StoreEntitySet="apartments">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdDistrict" ColumnName="IdDistrict" />
@@ -1008,7 +1025,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="apartments_demands">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.apartments_demands">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.apartments_demands">
               <MappingFragment StoreEntitySet="apartments_demands">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdDemands" ColumnName="IdDemands" />
@@ -1022,7 +1039,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="clients">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.clients">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.clients">
               <MappingFragment StoreEntitySet="clients">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1034,7 +1051,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="deals">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.deals">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.deals">
               <MappingFragment StoreEntitySet="deals">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Demand_Id" ColumnName="Demand_Id" />
@@ -1043,7 +1060,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Demands">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.Demands">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.Demands">
               <MappingFragment StoreEntitySet="Demands">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
@@ -1058,12 +1075,12 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="districts">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.districts">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.districts">
               <MappingFragment StoreEntitySet="districts">
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Coordinates" ColumnName="Coordinates" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Addres_City" ColumnName="Addres_City" />
                 <ScalarProperty Name="Address_Street" ColumnName="Address_Street" />
                 <ScalarProperty Name="Address_house" ColumnName="Address_house" />
@@ -1072,7 +1089,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="house_demands">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.house_demands">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.house_demands">
               <MappingFragment StoreEntitySet="house-demands">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdDemands" ColumnName="IdDemands" />
@@ -1086,7 +1103,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="houses">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.houses">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.houses">
               <MappingFragment StoreEntitySet="houses">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdDistrict" ColumnName="IdDistrict" />
@@ -1098,7 +1115,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="land_demands">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.land_demands">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.land_demands">
               <MappingFragment StoreEntitySet="land-demands">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdDemands" ColumnName="IdDemands" />
@@ -1108,7 +1125,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="lands">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.lands">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.lands">
               <MappingFragment StoreEntitySet="lands">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdDistrict" ColumnName="IdDistrict" />
@@ -1119,7 +1136,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="supplies">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.supplies">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.supplies">
               <MappingFragment StoreEntitySet="supplies">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
@@ -1130,7 +1147,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="RealEstateAgencyModel1.sysdiagrams">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1140,20 +1157,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище RealEstateAgencyModel1.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище RealEstateAgencyModel1.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище RealEstateAgencyModel1.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище RealEstateAgencyModel1.sp_helpdiagramdefinition">
+          <EntitySetMapping Name="types">
+            <EntityTypeMapping TypeName="RealEstateAgencyModel.types">
+              <MappingFragment StoreEntitySet="types">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище RealEstateAgencyModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище RealEstateAgencyModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище RealEstateAgencyModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище RealEstateAgencyModel.sp_helpdiagramdefinition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="RealEstateAgencyModel1.sp_helpdiagramdefinition_Result">
+              <ComplexTypeMapping TypeName="RealEstateAgencyModel.sp_helpdiagramdefinition_Result">
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище RealEstateAgencyModel1.sp_helpdiagrams">
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище RealEstateAgencyModel.sp_helpdiagrams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="RealEstateAgencyModel1.sp_helpdiagrams_Result">
+              <ComplexTypeMapping TypeName="RealEstateAgencyModel.sp_helpdiagrams_Result">
                 <ScalarProperty Name="Database" ColumnName="Database" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1162,8 +1187,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище RealEstateAgencyModel1.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище RealEstateAgencyModel1.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище RealEstateAgencyModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище RealEstateAgencyModel.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f5a024e11bed4861ba86fd7b7bddee68" Name="Diagram1">
+        <EntityTypeShape EntityType="RealEstateAgencyModel.agents" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.apartments" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.apartments_demands" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.clients" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.deals" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.Demands" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.districts" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.house_demands" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.houses" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.land_demands" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.lands" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.supplies" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateAgencyModel.types" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_apartments_demands_agents" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_house_demands_agents" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_land_demands_agents" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_supplies_agents" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_apartments_districts1" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_apartments_demands_clients" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_apartments_demands_Demands" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_house_demands_clients" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_land_demands_clients" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_supplies_clients" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_deals_Demands" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_deals_supplies" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_house_demands_Demands" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_land_demands_Demands" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_houses_districts1" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_lands_districts1" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_supplies_districts" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -23,7 +23,7 @@ namespace Project
         public apartmentsPage()
         {
             InitializeComponent();
-            DataGrid.ItemsSource = RealEstateAgencyEntities2.GetContext().apartments.ToList();
+            DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().apartments.ToList();
         }
     }
 }
