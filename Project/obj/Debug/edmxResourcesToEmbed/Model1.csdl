@@ -168,16 +168,6 @@
     <NavigationProperty Name="deals" Relationship="Self.FK_deals_supplies" FromRole="supplies" ToRole="deals" />
     <NavigationProperty Name="districts" Relationship="Self.FK_supplies_districts" FromRole="supplies" ToRole="districts" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="types">
     <Key>
       <PropertyRef Name="id" />
@@ -402,7 +392,6 @@
     <EntitySet Name="land_demands" EntityType="Self.land_demands" />
     <EntitySet Name="lands" EntityType="Self.lands" />
     <EntitySet Name="supplies" EntityType="Self.supplies" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="types" EntityType="Self.types" />
     <AssociationSet Name="FK_apartments_demands_agents" Association="Self.FK_apartments_demands_agents">
       <End Role="agents" EntitySet="agents" />

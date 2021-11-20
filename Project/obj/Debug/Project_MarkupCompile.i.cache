@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-W:\!Личная\Практика\Project\Project\obj\Debug\
+C:\Users\fordd\Desktop\Новая папка\EsoftPractic\Project\obj\Debug\
 Project
 none
 false
 DEBUG;TRACE
-W:\!Личная\Практика\Project\Project\App.xaml
-13-1422813967
+C:\Users\fordd\Desktop\Новая папка\EsoftPractic\Project\App.xaml
+15-1249827603
 21750853300
-38-1415263157
-19-715649987
-AddClients.xaml;AddDistrict.xaml;AddRealtor.xaml;AddSupplice.xaml;AgentsPage.xaml;AllTablesWindow.xaml;ApartmentsPage.xaml;ClientsPage.xaml;DistrictPage.xaml;HousesPage.xaml;LandsPage.xaml;MainWindow.xaml;SuplicePage.xaml;
+391566452614
+19850619234
+AddClients.xaml;AddDeals.xaml;AddDistrict.xaml;AddRealtor.xaml;AddSupplice.xaml;AgentsPage.xaml;AllTablesWindow.xaml;ApartmentsPage.xaml;ClientsPage.xaml;DealsPage.xaml;DistrictPage.xaml;HousesPage.xaml;LandsPage.xaml;MainWindow.xaml;SuplicePage.xaml;
 
 True
 
