@@ -62,5 +62,23 @@ namespace Project
                 DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().Demands.ToList();
             }
         }
+
+        private void apartmentsDemands_Checked(object sender, RoutedEventArgs e)
+        {
+            string ctx = ((RadioButton)sender).Content.ToString();
+            switch (ctx)
+            {
+                case "Квартиры":
+                    Manager._frame.Navigate(new apartmentDemands());
+                    break;
+                case "Земля":
+                    Manager._frame.Navigate(new landsDemands());
+                    break;
+                case "Дом":
+                    Manager._frame.Navigate(new houseDemands());
+                    break;
+            }
+        }
+
     }
 }

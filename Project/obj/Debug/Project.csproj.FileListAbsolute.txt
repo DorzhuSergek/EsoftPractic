@@ -95,3 +95,9 @@ C:\Users\Serge\source\repos\EsoftPractic\Project\obj\Debug\DemadsPage.g.cs
 C:\Users\Serge\source\repos\EsoftPractic\Project\obj\Debug\DemadsPage.baml
 C:\Users\Serge\source\repos\EsoftPractic\Project\obj\Debug\AddDemands.g.cs
 C:\Users\Serge\source\repos\EsoftPractic\Project\obj\Debug\AddDemands.baml
+C:\Users\Serge\source\repos\EsoftPractic\Project\obj\Debug\apartmentDemands.g.cs
+C:\Users\Serge\source\repos\EsoftPractic\Project\obj\Debug\apartmentDemands.baml
+C:\Users\Serge\source\repos\EsoftPractic\Project\obj\Debug\houseDemands.g.cs
+C:\Users\Serge\source\repos\EsoftPractic\Project\obj\Debug\houseDemands.baml
+C:\Users\Serge\source\repos\EsoftPractic\Project\obj\Debug\landsDemands.g.cs
+C:\Users\Serge\source\repos\EsoftPractic\Project\obj\Debug\landsDemands.baml

@@ -83,6 +83,9 @@
     <Compile Include="AllTablesWindow.xaml.cs">
       <DependentUpon>AllTablesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="apartmentDemands.xaml.cs">
+      <DependentUpon>apartmentDemands.xaml</DependentUpon>
+    </Compile>
     <Compile Include="apartments.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -113,6 +116,9 @@
     <Compile Include="districts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="houseDemands.xaml.cs">
+      <DependentUpon>houseDemands.xaml</DependentUpon>
+    </Compile>
     <Compile Include="houses.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <Compile Include="lands.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="landsDemands.xaml.cs">
+      <DependentUpon>landsDemands.xaml</DependentUpon>
     </Compile>
     <Compile Include="LandsPage.xaml.cs">
       <DependentUpon>LandsPage.xaml</DependentUpon>
@@ -190,6 +199,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="apartmentDemands.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ApartmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,7 +219,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="houseDemands.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HousesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="landsDemands.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

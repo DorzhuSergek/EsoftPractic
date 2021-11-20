@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Serge\source\repos\EsoftPractic\Project\App.xaml
-15-2075123811
+18484505599
 21750853300
-401247960125
+43-355582755
 19-100237932
-AddClients.xaml;AddDemands.xaml;AddDistrict.xaml;AddRealtor.xaml;AddSupplice.xaml;AgentsPage.xaml;AllTablesWindow.xaml;ApartmentsPage.xaml;ClientsPage.xaml;DemadsPage.xaml;DistrictPage.xaml;HousesPage.xaml;LandsPage.xaml;MainWindow.xaml;SuplicePage.xaml;
+AddClients.xaml;AddDemands.xaml;AddDistrict.xaml;AddRealtor.xaml;AddSupplice.xaml;AgentsPage.xaml;AllTablesWindow.xaml;apartmentDemands.xaml;ApartmentsPage.xaml;ClientsPage.xaml;DemadsPage.xaml;DistrictPage.xaml;houseDemands.xaml;HousesPage.xaml;landsDemands.xaml;LandsPage.xaml;MainWindow.xaml;SuplicePage.xaml;
 
 True
 

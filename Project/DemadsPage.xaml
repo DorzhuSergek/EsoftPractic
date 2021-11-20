@@ -11,10 +11,17 @@
     <Grid>
         <Grid Background="white">
             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="7*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="0">
+
+            <Grid Grid.Row="0" Background="White">
+                <RadioButton x:Name="apartmentsDemands" GroupName="Type" Content="Квартиры" Checked="apartmentsDemands_Checked"/>
+                <RadioButton x:Name="housesDemands" GroupName="Type" Content="Дом" VerticalAlignment="Center" Checked="apartmentsDemands_Checked"/>
+                <RadioButton x:Name="landsDemands" GroupName="Type" Content="Земля" VerticalAlignment="Bottom" Checked="apartmentsDemands_Checked"/>
+            </Grid>
+            <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="id" Binding="{Binding Path=Id}" Width="auto"/>
                     <DataGridTextColumn Header="Клиент" Binding="{Binding Path=clients.MiddleName}" Width="*"/>
@@ -27,15 +34,15 @@
                     <DataGridTextColumn Header="Максимальная площадь" Binding="{Binding Path=MaxArea}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="2">
                 <StackPanel>
-                    <Button Name="AddDemands" Content="Добавить" Height="25" HorizontalAlignment="Left" Grid.Row="1" Click="AddDemands_Click"/>
+                    <Button Name="AddDemands" Content="Добавить" Height="25" HorizontalAlignment="Left" Grid.Row="2" Click="AddDemands_Click"/>
                 </StackPanel>
                 <StackPanel>
-                    <Button Name="EditDemands" Content="Изменить" HorizontalAlignment="Right"  Height="25" Grid.Row="1" Click="EditDemands_Click"/>
+                    <Button Name="EditDemands" Content="Изменить" HorizontalAlignment="Right"  Height="25" Grid.Row="2" Click="EditDemands_Click"/>
                 </StackPanel>
                 <StackPanel>
-                    <Button Name="DelecteDemands" Content="Удалить" HorizontalAlignment="Center" Height="25" Grid.Row="1" Click="DelecteDemands_Click"/>
+                    <Button Name="DelecteDemands" Content="Удалить" HorizontalAlignment="Center" Height="25" Grid.Row="3" Click="DelecteDemands_Click"/>
                 </StackPanel>
 
 
