@@ -41,5 +41,9 @@ namespace Project
         public virtual ICollection<house_demands> house_demands { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<land_demands> land_demands { get; set; }
+        public virtual agents agents { get; set; }
+        public virtual clients clients { get; set; }
+        public virtual clients clients1 { get; set; }
+        public virtual clients clients2 { get; set; }
     }
 }

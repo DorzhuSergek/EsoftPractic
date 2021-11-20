@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="RealEstateAgencyModel.land_demands" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="RealEstateAgencyModel.lands" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
         <EntityTypeShape EntityType="RealEstateAgencyModel.supplies" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="RealEstateAgencyModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RealEstateAgencyModel.types" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="RealEstateAgencyModel.FK_apartments_demands_agents" ManuallyRouted="false" />
         <AssociationConnector Association="RealEstateAgencyModel.FK_house_demands_agents" ManuallyRouted="false" />
@@ -36,6 +35,10 @@
         <AssociationConnector Association="RealEstateAgencyModel.FK_houses_districts1" ManuallyRouted="false" />
         <AssociationConnector Association="RealEstateAgencyModel.FK_lands_districts1" ManuallyRouted="false" />
         <AssociationConnector Association="RealEstateAgencyModel.FK_supplies_districts" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_Demands_agents" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_Demands_clients" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_Demands_clients1" />
+        <AssociationConnector Association="RealEstateAgencyModel.FK_Demands_clients2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

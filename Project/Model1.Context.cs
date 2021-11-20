@@ -21,16 +21,7 @@ namespace Project
             : base("name=RealEstateAgencyEntities3")
         {
         }
-
-        public static RealEstateAgencyEntities3 _context;
-        public static RealEstateAgencyEntities3 GetContext()
-        {
-            if(_context == null)
-            {
-                _context = new RealEstateAgencyEntities3();
-            }
-            return _context;
-        }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -48,7 +39,6 @@ namespace Project
         public virtual DbSet<land_demands> land_demands { get; set; }
         public virtual DbSet<lands> lands { get; set; }
         public virtual DbSet<supplies> supplies { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<types> types { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)

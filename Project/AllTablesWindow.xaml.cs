@@ -44,5 +44,10 @@ namespace Project
         {
             Manager._frame.Navigate(new SuplicePage());
         }
+
+        private void btnDemands_Click(object sender, RoutedEventArgs e)
+        {
+            Manager._frame.Navigate(new DemadsPage());
+        }
     }
 }
