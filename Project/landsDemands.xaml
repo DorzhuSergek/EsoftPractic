@@ -13,8 +13,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="id" Binding="{Binding Path=Id}" Width="*"/>
                 <DataGridTextColumn Header="IDDistrict" Binding="{Binding Path=IDDemands}" Width="*"/>
-                <DataGridTextColumn Header="Координаты" Binding="{Binding Path=agents.MiddleName}" Width="*"/>
-                <DataGridTextColumn Header="Координаты" Binding="{Binding Path=clients.MiddleName}" Width="*"/>
+                <DataGridTextColumn Header="Агент" Binding="{Binding Path=agents.MiddleName}" Width="*"/>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding Path=clients.MiddleName}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
