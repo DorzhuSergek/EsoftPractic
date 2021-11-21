@@ -13,6 +13,7 @@
     <NavigationProperty Name="house_demands" Relationship="Self.FK_house_demands_agents" FromRole="agents" ToRole="house_demands" />
     <NavigationProperty Name="land_demands" Relationship="Self.FK_land_demands_agents" FromRole="agents" ToRole="land_demands" />
     <NavigationProperty Name="supplies" Relationship="Self.FK_supplies_agents" FromRole="agents" ToRole="supplies" />
+    <NavigationProperty Name="Demands" Relationship="RealEstateAgencyModel.FK_Demands_agents" FromRole="agents" ToRole="Demands" />
   </EntityType>
   <EntityType Name="apartments">
     <Key>
@@ -57,6 +58,9 @@
     <NavigationProperty Name="house_demands" Relationship="Self.FK_house_demands_clients" FromRole="clients" ToRole="house_demands" />
     <NavigationProperty Name="land_demands" Relationship="Self.FK_land_demands_clients" FromRole="clients" ToRole="land_demands" />
     <NavigationProperty Name="supplies" Relationship="Self.FK_supplies_clients" FromRole="clients" ToRole="supplies" />
+    <NavigationProperty Name="Demands" Relationship="RealEstateAgencyModel.FK_Demands_clients" FromRole="clients" ToRole="Demands" />
+    <NavigationProperty Name="Demands1" Relationship="RealEstateAgencyModel.FK_Demands_clients1" FromRole="clients" ToRole="Demands" />
+    <NavigationProperty Name="Demands2" Relationship="RealEstateAgencyModel.FK_Demands_clients2" FromRole="clients" ToRole="Demands" />
   </EntityType>
   <EntityType Name="deals">
     <Key>
@@ -85,6 +89,10 @@
     <NavigationProperty Name="deals" Relationship="Self.FK_deals_Demands" FromRole="Demands" ToRole="deals" />
     <NavigationProperty Name="house_demands" Relationship="Self.FK_house_demands_Demands" FromRole="Demands" ToRole="house_demands" />
     <NavigationProperty Name="land_demands" Relationship="Self.FK_land_demands_Demands" FromRole="Demands" ToRole="land_demands" />
+    <NavigationProperty Name="agents" Relationship="RealEstateAgencyModel.FK_Demands_agents" FromRole="Demands" ToRole="agents" />
+    <NavigationProperty Name="clients" Relationship="RealEstateAgencyModel.FK_Demands_clients" FromRole="Demands" ToRole="clients" />
+    <NavigationProperty Name="clients1" Relationship="RealEstateAgencyModel.FK_Demands_clients1" FromRole="Demands" ToRole="clients" />
+    <NavigationProperty Name="clients2" Relationship="RealEstateAgencyModel.FK_Demands_clients2" FromRole="Demands" ToRole="clients" />
   </EntityType>
   <EntityType Name="districts">
     <Key>
@@ -167,16 +175,6 @@
     <NavigationProperty Name="clients" Relationship="Self.FK_supplies_clients" FromRole="supplies" ToRole="clients" />
     <NavigationProperty Name="deals" Relationship="Self.FK_deals_supplies" FromRole="supplies" ToRole="deals" />
     <NavigationProperty Name="districts" Relationship="Self.FK_supplies_districts" FromRole="supplies" ToRole="districts" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="types">
     <Key>
@@ -402,7 +400,6 @@
     <EntitySet Name="land_demands" EntityType="Self.land_demands" />
     <EntitySet Name="lands" EntityType="Self.lands" />
     <EntitySet Name="supplies" EntityType="Self.supplies" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="types" EntityType="Self.types" />
     <AssociationSet Name="FK_apartments_demands_agents" Association="Self.FK_apartments_demands_agents">
       <End Role="agents" EntitySet="agents" />
@@ -502,6 +499,22 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <AssociationSet Name="FK_Demands_agents" Association="RealEstateAgencyModel.FK_Demands_agents">
+      <End Role="agents" EntitySet="agents" />
+      <End Role="Demands" EntitySet="Demands" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demands_clients" Association="RealEstateAgencyModel.FK_Demands_clients">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="Demands" EntitySet="Demands" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demands_clients1" Association="RealEstateAgencyModel.FK_Demands_clients1">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="Demands" EntitySet="Demands" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demands_clients2" Association="RealEstateAgencyModel.FK_Demands_clients2">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="Demands" EntitySet="Demands" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -514,4 +527,52 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <Association Name="FK_Demands_agents">
+    <End Type="RealEstateAgencyModel.agents" Role="agents" Multiplicity="0..1" />
+    <End Type="RealEstateAgencyModel.Demands" Role="Demands" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agents">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Demands">
+        <PropertyRef Name="IdAgent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demands_clients">
+    <End Type="RealEstateAgencyModel.clients" Role="clients" Multiplicity="0..1" />
+    <End Type="RealEstateAgencyModel.Demands" Role="Demands" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Demands">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demands_clients1">
+    <End Type="RealEstateAgencyModel.clients" Role="clients" Multiplicity="0..1" />
+    <End Type="RealEstateAgencyModel.Demands" Role="Demands" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Demands">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demands_clients2">
+    <End Type="RealEstateAgencyModel.clients" Role="clients" Multiplicity="0..1" />
+    <End Type="RealEstateAgencyModel.Demands" Role="Demands" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Demands">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

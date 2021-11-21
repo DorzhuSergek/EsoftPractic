@@ -21,6 +21,7 @@ namespace Project
             this.house_demands = new HashSet<house_demands>();
             this.land_demands = new HashSet<land_demands>();
             this.supplies = new HashSet<supplies>();
+            this.Demands = new HashSet<Demands>();
         }
     
         public int Id { get; set; }
@@ -37,5 +38,7 @@ namespace Project
         public virtual ICollection<land_demands> land_demands { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<supplies> supplies { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Demands> Demands { get; set; }
     }
 }

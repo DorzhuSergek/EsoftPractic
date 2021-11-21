@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-W:\!Личная\Практика\Project\Project\obj\Release\
+C:\Users\Serge\Source\Repos\EsoftPractic\Project\obj\Release\
 Project
 none
 false
 TRACE
-W:\!Личная\Практика\Project\Project\App.xaml
-3674245975
-
-8-1389976097
-13-1505183044
-AddClients.xaml;AddRealtor.xaml;MainWindow.xaml;
+C:\Users\Serge\Source\Repos\EsoftPractic\Project\App.xaml
+13-1422813967
+21750853300
+37-572903790
+19-885803749
+AddClients.xaml;AddDistrict.xaml;AddRealtor.xaml;AddSupplice.xaml;AgentsPage.xaml;AllTablesWindow.xaml;ApartmentsPage.xaml;ClientsPage.xaml;DistrictPage.xaml;HousesPage.xaml;LandsPage.xaml;MainWindow.xaml;SuplicePage.xaml;
 
 True
 
