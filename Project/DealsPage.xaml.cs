@@ -23,6 +23,46 @@ namespace Project
         public DealsPage()
         {
             InitializeComponent();
+            DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().deals.ToList();
+        }
+
+        private void AddDeal_Click(object sender, RoutedEventArgs e)
+        {
+            Manager._frame.Navigate(new AddDeals(null));
+        }
+
+        private void Editdeal_Click(object sender, RoutedEventArgs e)
+        {
+            Manager._frame.Navigate(new AddDeals(DataGrid.SelectedItem as deals));
+        }
+
+        private void DelecteDeal_Click(object sender, RoutedEventArgs e)
+        {
+            var dealsForRemoving = DataGrid.SelectedItems.Cast<deals>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {dealsForRemoving.Count()} элементов? ", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    RealEstateAgencyEntities3.GetContext().deals.RemoveRange(dealsForRemoving);
+                    RealEstateAgencyEntities3.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                    DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().deals.ToList();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                RealEstateAgencyEntities3.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DataGrid.ItemsSource = RealEstateAgencyEntities3.GetContext().deals.ToList();
+            }
         }
     }
 }

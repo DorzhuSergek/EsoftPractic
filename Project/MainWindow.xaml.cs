@@ -24,7 +24,7 @@ namespace Project
         {
             InitializeComponent();
             Manager._frame = frameMain;
-            Manager._frame.Navigate(new AddDeals());
+            Manager._frame.Navigate(new DealsPage());
         }
         private void BackRnt_Click(object sender, RoutedEventArgs e)
         {            
