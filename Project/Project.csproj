@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddDeals.xaml.cs">
+      <DependentUpon>AddDeals.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddDemands.xaml.cs">
       <DependentUpon>AddDemands.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,9 @@
     </Compile>
     <Compile Include="deals.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DealsPage.xaml.cs">
+      <DependentUpon>DealsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DemadsPage.xaml.cs">
       <DependentUpon>DemadsPage.xaml</DependentUpon>
@@ -175,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddDeals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AddDemands.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -210,6 +220,10 @@
     <Page Include="ClientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DealsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DemadsPage.xaml">
       <SubType>Designer</SubType>

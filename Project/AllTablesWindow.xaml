@@ -69,5 +69,15 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Click="btnDemands_Click"/>
+        <Button x:Name="btnDeals" Content="Сделки" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="BlanchedAlmond"
+                Width="111"
+                Height="30"
+                FontWeight="Bold"
+                Grid.Row="1"
+                Grid.Column="2"
+                Click="btnDeals_Click"/>
     </Grid>
 </Page>

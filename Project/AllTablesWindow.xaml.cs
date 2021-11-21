@@ -49,5 +49,10 @@ namespace Project
         {
             Manager._frame.Navigate(new DemadsPage());
         }
+
+        private void btnDeals_Click(object sender, RoutedEventArgs e)
+        {
+            Manager._frame.Navigate(new DealsPage());
+        }
     }
 }
